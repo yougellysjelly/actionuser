@@ -13,4 +13,4 @@ jobs:
       - id: foo
         uses: yougellysjelly/myactions/echo-action@v1
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: $GITHUB_REF
