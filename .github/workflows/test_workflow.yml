@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: yougellysjelly/myactions/echo-action@v1
+        uses: yougellysjelly/myactions/echo-action@v2
         with:
           who-to-greet: $GITHUB_REF
+          repository-to-clone: $GITHUB_REPOSITORY
+          tag-to-checkout: $GITHUB_REF
