@@ -13,9 +13,14 @@ jobs:
       - name: Get tag name
         id: get_tag_name
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: Get repo details
+        id: get_repo_details
+        run: |
+          echo ::set-output name=OWNER::${GITHUB_REPOSITORY/\/*/}
+          echo ::set-output name=REPO::${GITHUB_REPOSITORY/*\//}
       - id: foo
         uses: yougellysjelly/myactions/echo-action@v4
         with:
-          who-to-greet: $GITHUB_REPOSITORY
-          repository-to-clone: ${{ GITHUB_REPOSITORY }}
+          who-to-greet: ${{ steps.get_repo_details.outputs.OWNER/steps.get_repo_details.outputs.REPO }}
+          repository-to-clone: ${{ steps.get_repo_details.outputs.OWNER/steps.get_repo_details.outputs.REPO }}
           tag-to-checkout: ${{ steps.get_tag_name.outputs.VERSION }}
