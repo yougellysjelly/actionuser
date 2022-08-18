@@ -17,5 +17,5 @@ jobs:
         uses: yougellysjelly/myactions/echo-action@v4
         with:
           who-to-greet: $GITHUB_REPOSITORY
-          repository-to-clone: $GITHUB_REPOSITORY
+          repository-to-clone: ${{ GITHUB_REPOSITORY }}
           tag-to-checkout: ${{ steps.get_tag_name.outputs.VERSION }}
