@@ -1,0 +1,16 @@
+on:
+  push:
+    tags: "v*"
+  release:
+    types: [published]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: yougellysjelly/myactions/echo-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
