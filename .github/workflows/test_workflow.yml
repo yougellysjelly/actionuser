@@ -21,6 +21,6 @@ jobs:
       - id: foo
         uses: yougellysjelly/myactions/echo-action@v4
         with:
-          who-to-greet: ${{ steps.get_repo_details.outputs.OWNER/steps.get_repo_details.outputs.REPO }}
-          repository-to-clone: ${{ steps.get_repo_details.outputs.OWNER/steps.get_repo_details.outputs.REPO }}
+          who-to-greet: ${{ format('{0}/{1}', steps.get_repo_details.outputs.OWNER, steps.get_repo_details.outputs.REPO) }}
+          repository-to-clone: ${{ format('{0}/{1}', steps.get_repo_details.outputs.OWNER, steps.get_repo_details.outputs.REPO) }}
           tag-to-checkout: ${{ steps.get_tag_name.outputs.VERSION }}
