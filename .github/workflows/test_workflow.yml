@@ -19,7 +19,7 @@ jobs:
           echo ::set-output name=OWNER::${GITHUB_REPOSITORY/\/*/}
           echo ::set-output name=REPO::${GITHUB_REPOSITORY/*\//}
       - id: foo
-        uses: yougellysjelly/myactions/echo-action@v6
+        uses: yougellysjelly/myactions/echo-action@v7
         with:
           who-to-greet: ${{ format('{0}/{1}', steps.get_repo_details.outputs.OWNER, steps.get_repo_details.outputs.REPO) }}
           repository-to-clone: ${{ format('{0}/{1}', steps.get_repo_details.outputs.OWNER, steps.get_repo_details.outputs.REPO) }}
